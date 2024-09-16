@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shipping_tracker/core/app_assets.dart';
+import 'package:shipping_tracker/core/app_routes.dart';
 import 'package:shipping_tracker/core/widgets/main_btn.dart';
 import 'package:shipping_tracker/core/widgets/main_text_field.dart';
 import '../../../../core/app_colors.dart';
 import '../../../../core/helpers/utils.dart';
+import '../widgets/forget_password_popup.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = "/";
@@ -113,7 +115,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 14,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () =>
+                          ForgotPasswordDialog.showForgetPasswordDialog(context,
+                              () {
+                        Navigator.of(context).pop();
+                      }),
                       child: Text(
                         'Forgot password?',
                         style: TextStyle(color: AppColors.lightBlue),
