@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../widgets/snackbar_dialog.dart';
 
 class Utils {
-  static bool isValidEmail(
-      {required String email, required BuildContext context}) {
-    bool isValid = true;
+  static String? validateEmail({required String email}) {
     if (email.isEmpty) {
-      SnackBarDialog.showSnackBar(context, "Please enter Email");
-      return isValid = false;
+      return "Please enter Email";
     }
 
     bool emailValid = RegExp(
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(email.trim());
     if (!emailValid) {
-      SnackBarDialog.showSnackBar(context, "Please enter a valid Email");
-      return isValid = false;
+      return "Please enter a valid Email";
     }
-    return isValid;
+    return null;
+  }
+
+  static String? validatePassword({required String password}) {
+    if (password.isEmpty) {
+      return "Please enter your password";
+    }
+    return null;
   }
 
   static validatePhoneNumber(String phoneNumber) {
