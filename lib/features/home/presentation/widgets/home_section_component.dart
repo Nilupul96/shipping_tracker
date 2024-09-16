@@ -5,7 +5,9 @@ import '../../../../core/app_colors.dart';
 class HomeSectionComponent extends StatelessWidget {
   final String title;
   final Widget? content;
-  const HomeSectionComponent({super.key, required this.title, this.content});
+  final double? borderRadius;
+  const HomeSectionComponent(
+      {super.key, required this.title, this.content, this.borderRadius});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class HomeSectionComponent extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
           color: AppColors.white,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8),
           boxShadow: [
             BoxShadow(
                 offset: const Offset(0, 4),
