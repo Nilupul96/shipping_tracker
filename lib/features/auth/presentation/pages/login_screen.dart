@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shipping_tracker/core/app_assets.dart';
-import 'package:shipping_tracker/core/app_routes.dart';
 import 'package:shipping_tracker/core/widgets/main_btn.dart';
 import 'package:shipping_tracker/core/widgets/main_text_field.dart';
+import 'package:shipping_tracker/core/widgets/snackbar_dialog.dart';
+import 'package:shipping_tracker/features/home/presentation/pages/home_screen.dart';
 import '../../../../core/app_colors.dart';
 import '../../../../core/helpers/utils.dart';
 import '../widgets/forget_password_popup.dart';
@@ -33,7 +35,10 @@ class _LoginScreenState extends State<LoginScreen> {
         });
         return;
       }
-    } catch (e) {}
+      context.goNamed(HomeScreen.routeName);
+    } catch (e) {
+      SnackBarDialog.showSnackBar(context, '$e');
+    }
   }
 
   @override

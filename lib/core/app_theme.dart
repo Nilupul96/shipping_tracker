@@ -8,7 +8,7 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.lightBlue, brightness: Brightness.light),
       useMaterial3: true,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: AppColors.bg,
       iconTheme: IconThemeData(color: AppColors.black),
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: AppColors.white),
